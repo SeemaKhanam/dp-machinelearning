@@ -96,16 +96,13 @@ df_prediction_proba.columns = ['Adelie', 'Chinstrap', 'Gentoo']
 #Here, you're converting the probability array (prediction_proba) into a Pandas DataFrame. This will help you display the predicted probabilities for each species.
 #df_prediction_proba.columns = ['Adelie', 'Chinstrap', 'Gentoo']:
 #After creating the DataFrame, you're setting the column names to represent the species names ('Adelie', 'Chinstrap', 'Gentoo') instead of generic column names like 0, 1, 2.
-#df_prediction_proba.rename(columns={0: 'Adelie',
-#                                 1: 'Chinstrap',
-#                                 2: 'Gentoo'})
 
 
 # Display predicted species
 st.subheader('Predicted Species')
 st.dataframe(df_prediction_proba,
              column_config={
-               'Adelie': st.column_config.ProgressColumn(
+               'Adelie': st.column_config.ProgressColumn(   #ProgressColumn to visually represent the probabilities as progress bars.
                  'Adelie',
                  format='%f',
                  width='medium',
@@ -126,7 +123,7 @@ st.dataframe(df_prediction_proba,
                  min_value=0,
                  max_value=1
                ),
-             }, hide_index=True)
+             }, hide_index=False)
 
 
 penguins_species = np.array(['Adelie', 'Chinstrap', 'Gentoo'])
