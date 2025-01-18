@@ -64,10 +64,13 @@ target_mapper = {'Adelie': 0,
                  'Gentoo': 2}
 def target_encode(val):
   return target_mapper[val]
+  
 '''
  you're using .apply() on y_raw, which is presumably a Pandas Series containing the species names.
  The .apply() method applies the target_encode function to each value in the y_raw Series, transforming
- the species names into their corresponding numerical values.'''
+ the species names into their corresponding numerical values.'
+ '''
+
 y = y_raw.apply(target_encode)
 
 with st.expander('Data preparation'):
@@ -75,7 +78,8 @@ with st.expander('Data preparation'):
   input_row
   '''
   st.write('**Encoded y**')
-  y'''
+  y
+  '''
 
 
 # Model training and inference
