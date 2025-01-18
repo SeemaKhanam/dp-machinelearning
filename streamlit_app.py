@@ -92,7 +92,9 @@ prediction_proba = clf.predict_proba(input_row)   #[0.1, 0.7, 0.2]
 
 df_prediction_proba = pd.DataFrame(prediction_proba)
 df_prediction_proba.columns = ['Adelie', 'Chinstrap', 'Gentoo']
-df_prediction_proba = pd.DataFrame(prediction_proba)
+df_prediction_proba.rename(columns={0: 'Adelie',
+                                 1: 'Chinstrap',
+                                 2: 'Gentoo'})
 #Here, you're converting the probability array (prediction_proba) into a Pandas DataFrame. This will help you display the predicted probabilities for each species.
 #df_prediction_proba.columns = ['Adelie', 'Chinstrap', 'Gentoo']:
 #After creating the DataFrame, you're setting the column names to represent the species names ('Adelie', 'Chinstrap', 'Gentoo') instead of generic column names like 0, 1, 2.
