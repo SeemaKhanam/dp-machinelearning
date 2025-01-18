@@ -37,5 +37,5 @@ with st.sidebar:
         'gender',gender}
   input_df=pd.DataFrame(data,index[0])
 
-        '
+        
         
