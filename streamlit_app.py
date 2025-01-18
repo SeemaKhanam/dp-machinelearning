@@ -17,3 +17,8 @@ with st.expander('Data'):
   y
 with st.expander('Data Visulization'):
   st.scatter_chart(data=df,x='bill_length_mm',y='body_mass_g',color='species')
+
+# Data Preparation
+with st.sidebar:
+  st.header('Input Features')
+  
