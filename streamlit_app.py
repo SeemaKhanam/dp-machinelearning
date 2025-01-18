@@ -53,7 +53,7 @@ with st.expander('Input features'):
 # Data preparation
 # Encode X
 encode = ['island', 'sex']
-df_penguins = pd.get_dummies(input_penguins, prefix=encode)
+df_penguins = pd.get_dummies(input_penguins, prefix=encode) #The prefix parameter ensures that the dummy columns are named with the column name (island or sex) as a prefix.
 
 X = df_penguins[1:]
 input_row = df_penguins[:1]
@@ -64,14 +64,18 @@ target_mapper = {'Adelie': 0,
                  'Gentoo': 2}
 def target_encode(val):
   return target_mapper[val]
-
+'''
+ you're using .apply() on y_raw, which is presumably a Pandas Series containing the species names.
+ The .apply() method applies the target_encode function to each value in the y_raw Series, transforming
+ the species names into their corresponding numerical values.'''
 y = y_raw.apply(target_encode)
 
 with st.expander('Data preparation'):
   st.write('**Encoded X (input penguin)**')
   input_row
+  '''
   st.write('**Encoded y**')
-  y
+  y'''
 
 
 # Model training and inference
